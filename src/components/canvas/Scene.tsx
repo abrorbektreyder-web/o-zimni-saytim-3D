@@ -371,7 +371,7 @@ export function Scene() {
                 <pointLight position={[-5, -5, -5]} intensity={0.2} color="#fbbf24" />
 
                 <Globe />
-                <ConnectionArcs />
+                {/* <ConnectionArcs /> - Foydalanuvchi talabiga ko'ra olib tashlandi */}
                 <StarField />
                 <OrbitRing />
                 <CameraController />
