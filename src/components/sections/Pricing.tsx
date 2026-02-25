@@ -71,7 +71,7 @@ export function Pricing() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.15, duration: 0.7 }}
-                            className={`card-hover-glow relative rounded-2xl p-6 md:p-8 flex flex-col group hover:border-amber-500/20 transition-all duration-500 ${plan.highlighted
+                            className={`card-hover-glow relative rounded-2xl p-5 md:p-6 flex flex-col group hover:border-amber-500/20 transition-all duration-500 ${plan.highlighted
                                 ? 'glass-card border-amber-500/20'
                                 : 'glass-card'
                                 }`}
@@ -87,23 +87,23 @@ export function Pricing() {
                             <div className="relative z-10 flex flex-col h-full">
                                 {/* Badge */}
                                 {plan.badge && (
-                                    <div className="text-[9px] font-bold tracking-[0.2em] uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1 w-max mb-4">
+                                    <div className="text-[9px] font-bold tracking-[0.2em] uppercase text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full px-3 py-1 w-max mb-3">
                                         {plan.badge}
                                     </div>
                                 )}
 
                                 {/* Plan header */}
-                                <h3 className="text-xl font-bold text-white mb-2 tracking-tight">{plan.name}</h3>
-                                <p className="text-zinc-500 text-sm mb-6">{plan.description}</p>
+                                <h3 className="text-xl font-bold text-white mb-1 tracking-tight">{plan.name}</h3>
+                                <p className="text-zinc-500 text-sm mb-4">{plan.description}</p>
 
                                 {/* Price */}
-                                <div className="mb-8">
+                                <div className="mb-5">
                                     <span className="text-3xl font-bold text-white tracking-tight">{plan.price}</span>
                                     <span className="text-zinc-500 text-sm ml-1">{plan.period}</span>
                                 </div>
 
                                 {/* Features */}
-                                <ul className="flex flex-col gap-3 mb-8 flex-1">
+                                <ul className="flex flex-col gap-2 mb-6 flex-1">
                                     {plan.features.map((feature, i) => (
                                         <li key={i} className="flex items-center gap-3 text-sm text-zinc-400">
                                             <span className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${plan.highlighted
@@ -123,7 +123,7 @@ export function Pricing() {
                                     href="https://t.me/Huzayfa12312022"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`w-full py-3.5 rounded-xl text-center font-semibold text-sm tracking-wide transition-all duration-300 block ${plan.highlighted
+                                    className={`w-full py-3 rounded-xl text-center font-semibold text-sm tracking-wide transition-all duration-300 block ${plan.highlighted
                                         ? 'bg-amber-500 text-[#050A14] hover:bg-amber-400 hover:shadow-[0_0_30px_rgba(245,158,11,0.3)]'
                                         : 'border border-white/10 text-zinc-300 hover:border-amber-500/30 hover:text-amber-400 hover:bg-white/[0.03]'
                                         }`}
