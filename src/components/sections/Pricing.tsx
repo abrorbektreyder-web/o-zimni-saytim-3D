@@ -71,9 +71,9 @@ export function Pricing() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.15, duration: 0.7 }}
-                            className={`relative rounded-2xl p-6 md:p-8 flex flex-col ${plan.highlighted
-                                    ? 'glass-card border-amber-500/20'
-                                    : 'glass-card'
+                            className={`card-hover-glow relative rounded-2xl p-6 md:p-8 flex flex-col group hover:border-amber-500/20 transition-all duration-500 ${plan.highlighted
+                                ? 'glass-card border-amber-500/20'
+                                : 'glass-card'
                                 }`}
                         >
                             {/* Highlighted card glow */}
@@ -107,8 +107,8 @@ export function Pricing() {
                                     {plan.features.map((feature, i) => (
                                         <li key={i} className="flex items-center gap-3 text-sm text-zinc-400">
                                             <span className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${plan.highlighted
-                                                    ? 'bg-amber-500/10 border border-amber-500/20'
-                                                    : 'bg-white/[0.03] border border-white/10'
+                                                ? 'bg-amber-500/10 border border-amber-500/20'
+                                                : 'bg-white/[0.03] border border-white/10'
                                                 }`}>
                                                 <Check className={`w-3 h-3 ${plan.highlighted ? 'text-amber-400' : 'text-zinc-500'
                                                     }`} />
@@ -124,8 +124,8 @@ export function Pricing() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`w-full py-3.5 rounded-xl text-center font-semibold text-sm tracking-wide transition-all duration-300 block ${plan.highlighted
-                                            ? 'bg-amber-500 text-[#050A14] hover:bg-amber-400 hover:shadow-[0_0_30px_rgba(245,158,11,0.3)]'
-                                            : 'border border-white/10 text-zinc-300 hover:border-amber-500/30 hover:text-amber-400 hover:bg-white/[0.03]'
+                                        ? 'bg-amber-500 text-[#050A14] hover:bg-amber-400 hover:shadow-[0_0_30px_rgba(245,158,11,0.3)]'
+                                        : 'border border-white/10 text-zinc-300 hover:border-amber-500/30 hover:text-amber-400 hover:bg-white/[0.03]'
                                         }`}
                                 >
                                     {plan.cta}

@@ -145,7 +145,7 @@
 }
 
 .card-hover-glow:hover::before {
-  background: linear-gradient(135deg, #f59e0b, #fbbf24, transparent, transparent);
+  background: #f59e0b;
 }
 
 /* Vignette effect */

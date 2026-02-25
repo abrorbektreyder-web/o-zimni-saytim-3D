@@ -78,7 +78,7 @@ export function Advantages() {
                             transition={{ delay: idx * 0.2, duration: 0.7 }}
                             className="group relative"
                         >
-                            <div className="glass-card rounded-2xl p-6 md:p-8 hover:border-amber-500/20 transition-all duration-500 h-full flex flex-col">
+                            <div className="card-hover-glow glass-card rounded-2xl p-6 md:p-8 hover:border-amber-500/20 transition-all duration-500 h-full flex flex-col">
                                 {/* Step number and icon */}
                                 <div className="flex items-center justify-between mb-6">
                                     <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center group-hover:bg-amber-500/20 group-hover:scale-110 transition-all duration-500">

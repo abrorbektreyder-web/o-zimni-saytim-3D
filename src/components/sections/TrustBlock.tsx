@@ -103,7 +103,7 @@ export function TrustBlock() {
                                                 {row.natija}
                                             </span>
                                             <span className={`text-[10px] uppercase tracking-wider font-medium ${row.holat === 'Muvaffaqiyatli' ? 'text-emerald-400' :
-                                                    'text-amber-400'
+                                                'text-amber-400'
                                                 }`}>
                                                 {row.holat}
                                             </span>
@@ -116,9 +116,9 @@ export function TrustBlock() {
                             {card.type === 'metric' && (
                                 <div className="grid grid-cols-3 gap-4">
                                     {[
-                                        { label: 'React / Next.js', value: '★★★', color: 'text-amber-400' },
-                                        { label: 'Three.js / WebGL', value: '★★★', color: 'text-amber-400' },
-                                        { label: 'UI/UX Dizayn', value: '★★★', color: 'text-emerald-400' },
+                                        { label: 'React / Next.js', value: '★★★★★', color: 'text-amber-400' },
+                                        { label: 'Three.js / WebGL', value: '★★★★★', color: 'text-amber-400' },
+                                        { label: 'UI/UX Dizayn', value: '★★★★★', color: 'text-emerald-400' },
                                     ].map((m, i) => (
                                         <div key={i} className="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
                                             <div className={`text-2xl font-bold ${m.color} mb-1`}>{m.value}</div>
@@ -137,8 +137,8 @@ export function TrustBlock() {
                                             className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] hover:border-amber-500/30 hover:bg-amber-500/5 transition-all duration-300 cursor-default"
                                         >
                                             <div className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-amber-400' :
-                                                    i % 3 === 1 ? 'bg-emerald-400' :
-                                                        'bg-blue-400'
+                                                i % 3 === 1 ? 'bg-emerald-400' :
+                                                    'bg-blue-400'
                                                 }`}></div>
                                             <span className="text-xs font-medium text-zinc-300">{service}</span>
                                         </div>
