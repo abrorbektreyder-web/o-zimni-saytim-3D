@@ -2,41 +2,6 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useRef, useMemo, useEffect, useState } from 'react';
 import * as THREE from 'three';
 
-// City coordinates (lat, lng) for connection arcs
-const CITIES = [
-    { name: 'New York', lat: 40.7128, lng: -74.006 },
-    { name: 'London', lat: 51.5074, lng: -0.1278 },
-    { name: 'Tokyo', lat: 35.6762, lng: 139.6503 },
-    { name: 'Dubai', lat: 25.2048, lng: 55.2708 },
-    { name: 'Singapore', lat: 1.3521, lng: 103.8198 },
-    { name: 'Sydney', lat: -33.8688, lng: 151.2093 },
-    { name: 'Moscow', lat: 55.7558, lng: 37.6173 },
-    { name: 'São Paulo', lat: -23.5505, lng: -46.6333 },
-    { name: 'Mumbai', lat: 19.076, lng: 72.8777 },
-    { name: 'Beijing', lat: 39.9042, lng: 116.4074 },
-    { name: 'Nairobi', lat: -1.2921, lng: 36.8219 },
-    { name: 'Cairo', lat: 30.0444, lng: 31.2357 },
-];
-
-function latLngToVector3(lat: number, lng: number, radius: number): THREE.Vector3 {
-    const phi = (90 - lat) * (Math.PI / 180);
-    const theta = (lng + 180) * (Math.PI / 180);
-    const x = -(radius * Math.sin(phi) * Math.cos(theta));
-    const z = radius * Math.sin(phi) * Math.sin(theta);
-    const y = radius * Math.cos(phi);
-    return new THREE.Vector3(x, y, z);
-}
-
-function createArcCurve(start: THREE.Vector3, end: THREE.Vector3, radius: number): THREE.CubicBezierCurve3 {
-    const mid = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
-    const dist = start.distanceTo(end);
-    mid.normalize().multiplyScalar(radius + dist * 0.35);
-    const cp1 = new THREE.Vector3().lerpVectors(start, mid, 0.33);
-    const cp2 = new THREE.Vector3().lerpVectors(start, mid, 0.66);
-    cp1.normalize().multiplyScalar(radius + dist * 0.2);
-    cp2.normalize().multiplyScalar(radius + dist * 0.3);
-    return new THREE.CubicBezierCurve3(start, cp1, cp2, end);
-}
 
 // Globe sphere with procedural "night lights" shader
 function Globe() {
@@ -188,62 +153,6 @@ function Globe() {
     );
 }
 
-// Connection arcs between cities
-function ConnectionArcs() {
-    const groupRef = useRef<THREE.Group>(null);
-    const radius = 2.2;
-
-    const arcs = useMemo(() => {
-        const connections: { curve: THREE.CubicBezierCurve3; index: number }[] = [];
-        const pairs = [
-            [0, 1], [1, 6], [1, 3], [3, 4], [4, 2], [2, 9],
-            [0, 7], [8, 3], [5, 4], [10, 11], [11, 3], [8, 4]
-        ];
-        pairs.forEach(([a, b], index) => {
-            const start = latLngToVector3(CITIES[a].lat, CITIES[a].lng, radius);
-            const end = latLngToVector3(CITIES[b].lat, CITIES[b].lng, radius);
-            connections.push({ curve: createArcCurve(start, end, radius), index });
-        });
-        return connections;
-    }, []);
-
-    useFrame((state) => {
-        if (groupRef.current) {
-            groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.08;
-        }
-    });
-
-    return (
-        <group ref={groupRef}>
-            {arcs.map((arc, i) => {
-                const points = arc.curve.getPoints(50);
-                const geometry = new THREE.BufferGeometry().setFromPoints(points);
-                return (
-                    // @ts-ignore - TypeScript confuses R3F line with SVG line
-                    <line key={i} geometry={geometry}>
-                        <lineBasicMaterial
-                            color="#f59e0b"
-                            transparent
-                            opacity={0.3}
-                            linewidth={1}
-                        />
-                    </line>
-                );
-            })}
-
-            {/* City nodes */}
-            {CITIES.map((city, i) => {
-                const pos = latLngToVector3(city.lat, city.lng, radius);
-                return (
-                    <mesh key={i} position={pos}>
-                        <sphereGeometry args={[0.025, 8, 8]} />
-                        <meshBasicMaterial color="#fbbf24" />
-                    </mesh>
-                );
-            })}
-        </group>
-    );
-}
 
 // Orbiting particles/stars
 function StarField() {
@@ -371,7 +280,6 @@ export function Scene() {
                 <pointLight position={[-5, -5, -5]} intensity={0.2} color="#fbbf24" />
 
                 <Globe />
-                {/* <ConnectionArcs /> - Foydalanuvchi talabiga ko'ra olib tashlandi */}
                 <StarField />
                 <OrbitRing />
                 <CameraController />
