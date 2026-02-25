@@ -219,6 +219,7 @@ function ConnectionArcs() {
                 const points = arc.curve.getPoints(50);
                 const geometry = new THREE.BufferGeometry().setFromPoints(points);
                 return (
+                    // @ts-ignore - TypeScript confuses R3F line with SVG line
                     <line key={i} geometry={geometry}>
                         <lineBasicMaterial
                             color="#f59e0b"
