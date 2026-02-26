@@ -92,19 +92,21 @@ export function Portfolio() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    className="mt-8 glass-card rounded-2xl p-6 flex flex-wrap items-center justify-between gap-6"
+                    className="mt-8 glass-card rounded-2xl p-6"
                 >
-                    {[
-                        { label: 'Unumdorlik', value: '99/100' },
-                        { label: 'SEO Optimizatsiya', value: '100/100' },
-                        { label: 'Yuklanish Vaqti', value: '< 1 soniya' },
-                        { label: 'Xavfsizlik', value: 'A+ Daraja' },
-                    ].map((spec, i) => (
-                        <div key={i} className="flex flex-col items-center text-center flex-1 min-w-[120px]">
-                            <span className="text-lg font-bold text-white tracking-tight">{spec.value}</span>
-                            <span className="text-[10px] tracking-[0.15em] uppercase text-zinc-500 mt-1">{spec.label}</span>
-                        </div>
-                    ))}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                            { label: 'Unumdorlik', value: '99/100' },
+                            { label: 'SEO Optimizatsiya', value: '100/100' },
+                            { label: 'Yuklanish Vaqti', value: '< 1 soniya' },
+                            { label: 'Xavfsizlik', value: 'A+ Daraja' },
+                        ].map((spec, i) => (
+                            <div key={i} className="flex flex-col items-center text-center p-3">
+                                <span className="text-lg font-bold text-white tracking-tight">{spec.value}</span>
+                                <span className="text-[10px] tracking-[0.15em] uppercase text-zinc-500 mt-1">{spec.label}</span>
+                            </div>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
         </section>

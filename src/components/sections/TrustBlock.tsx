@@ -88,33 +88,35 @@ export function TrustBlock() {
 
                             {/* Mockup data table for first card */}
                             {card.type === 'table' && (
-                                <div className="rounded-xl bg-white/[0.02] border border-white/5 overflow-hidden">
-                                    <div className="grid grid-cols-4 text-[10px] tracking-[0.15em] uppercase text-zinc-500 p-3 border-b border-white/5">
-                                        <span>Loyiha</span>
-                                        <span>Holat</span>
-                                        <span>Konversiya</span>
-                                        <span>Natija</span>
-                                    </div>
-                                    {projectData.map((row, i) => (
-                                        <div key={i} className="grid grid-cols-4 text-sm p-3 border-b border-white/[0.03] last:border-0 items-center hover:bg-white/[0.02] transition-colors">
-                                            <span className="text-white font-medium text-xs">{row.name}</span>
-                                            <span className="text-zinc-300 text-xs">{row.status}</span>
-                                            <span className="text-xs text-emerald-400">
-                                                {row.natija}
-                                            </span>
-                                            <span className={`text-[10px] uppercase tracking-wider font-medium ${row.holat === 'Muvaffaqiyatli' ? 'text-emerald-400' :
-                                                'text-amber-400'
-                                                }`}>
-                                                {row.holat}
-                                            </span>
+                                <div className="rounded-xl bg-white/[0.02] border border-white/5 overflow-x-auto">
+                                    <div className="min-w-[420px]">
+                                        <div className="grid grid-cols-4 text-[10px] tracking-[0.15em] uppercase text-zinc-500 p-3 border-b border-white/5">
+                                            <span>Loyiha</span>
+                                            <span>Holat</span>
+                                            <span>Konversiya</span>
+                                            <span>Natija</span>
                                         </div>
-                                    ))}
+                                        {projectData.map((row, i) => (
+                                            <div key={i} className="grid grid-cols-4 text-sm p-3 border-b border-white/[0.03] last:border-0 items-center hover:bg-white/[0.02] transition-colors">
+                                                <span className="text-white font-medium text-xs">{row.name}</span>
+                                                <span className="text-zinc-300 text-xs">{row.status}</span>
+                                                <span className="text-xs text-emerald-400">
+                                                    {row.natija}
+                                                </span>
+                                                <span className={`text-[10px] uppercase tracking-wider font-medium ${row.holat === 'Muvaffaqiyatli' ? 'text-emerald-400' :
+                                                    'text-amber-400'
+                                                    }`}>
+                                                    {row.holat}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
 
                             {/* Metric display for second card */}
                             {card.type === 'metric' && (
-                                <div className="grid grid-cols-3 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                     {[
                                         { label: 'React / Next.js', value: '★★★★★', color: 'text-amber-400' },
                                         { label: 'Three.js / WebGL', value: '★★★★★', color: 'text-amber-400' },
