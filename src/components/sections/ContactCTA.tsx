@@ -98,9 +98,9 @@ export function ContactCTA() {
         setSubmitStatus('idle');
 
         try {
-            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-
-            const response = await fetch(`${API_URL}/api/contact`, {
+            // Vercel Serverless Function — /api/contact
+            // Lokal dev uchun ham proxy orqali ishlaydi
+            const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
