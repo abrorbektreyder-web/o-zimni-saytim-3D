@@ -120,9 +120,7 @@ export function Pricing() {
 
                                 {/* CTA button */}
                                 <a
-                                    href="https://t.me/Huzayfa12312022"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    href="#contact"
                                     className={`w-full py-3 rounded-xl text-center font-semibold text-sm tracking-wide transition-all duration-300 block ${plan.highlighted
                                         ? 'bg-amber-500 text-[#050A14] hover:bg-amber-400 hover:shadow-[0_0_30px_rgba(245,158,11,0.3)]'
                                         : 'border border-white/10 text-zinc-300 hover:border-amber-500/30 hover:text-amber-400 hover:bg-white/[0.03]'

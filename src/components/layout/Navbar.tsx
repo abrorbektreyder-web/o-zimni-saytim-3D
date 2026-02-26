@@ -61,9 +61,7 @@ export function Navbar() {
 
                 {/* Contact Button */}
                 <a
-                    href="https://t.me/Huzayfa12312022"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#contact"
                     className="hidden md:flex items-center gap-2 px-5 py-2 rounded-lg border border-white/10 bg-white/[0.03] text-[11px] font-medium tracking-[0.15em] uppercase text-zinc-400 hover:text-amber-400 hover:border-amber-500/30 transition-all duration-300"
                 >
                     BOG'LANISH
