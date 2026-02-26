@@ -66,8 +66,6 @@ export function Advantages() {
 
                 {/* Workflow steps */}
                 <div className="grid md:grid-cols-3 gap-6 relative">
-                    {/* Connecting lines between steps */}
-                    <div className="hidden md:block absolute top-24 left-[33.3%] right-[33.3%] h-[1px] bg-gradient-to-r from-amber-500/30 via-amber-500/10 to-amber-500/30"></div>
 
                     {steps.map((step, idx) => (
                         <motion.div
